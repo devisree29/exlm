@@ -2287,5 +2287,18 @@
         "description": "Override default behaviour with custom Navigation"
       }
     ]
-  }
+  },
+  {
+    "id": "block-quote",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "block-quote",
+        "value": "",
+        "label": "Block quote",
+        "description": "Sets the Block Quote text"
+      }
+    ]
+  }  
 ]
