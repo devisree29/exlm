@@ -1,7 +1,7 @@
 [
   {
     "id": "main",
-    "components": ["section", "browse-rail-section", "article-header-section", "article-content-section"]
+    "components": ["section", "browse-rail-section", "article-content-section", "article-header-section"]
   },
   {
     "id": "columns",
@@ -40,7 +40,9 @@
       "adls-cards",
       "tabbed-cards",
       "tabs",
-      "recommended-courses"
+      "recommended-courses",
+      "block-quote",
+      "callout"
     ]
   },
   {
@@ -72,7 +74,9 @@
       "adls-cards",
       "tabbed-cards",
       "tabs",
-      "recommended-courses"
+      "recommended-courses",
+      "block-quote",
+      "callout"
     ]
   },
   {
