@@ -43,7 +43,9 @@
       "recommended-courses",
       "block-quote",
       "callout",
-      "author-bio"
+      "article-tags",
+      "author-bio",
+      "author-summary"
     ]
   },
   {
@@ -78,7 +80,9 @@
       "recommended-courses",
       "block-quote",
       "callout",
-      "author-bio"
+      "article-tags",
+      "author-bio",
+      "author-summary"
     ]
   },
   {
