@@ -174,18 +174,22 @@ async function decorateLanguageToggle(block, placeholders) {
     const docContainer = document.querySelector('main > div:first-child');
 
     [...desktopAndMobileLangToggles].forEach((langToggle) => {
-      langToggle.addEventListener('change', async (e) => {
-        const { checked } = e.target;
-        await toggleContent(checked, docContainer);
-      });
+      if (!langToggle.parentElement.classList.contains('listener')) {
+        langToggle.addEventListener('change', async (e) => {
+          const { checked } = e.target;
+          await toggleContent(checked, docContainer);
+          assetInteractionModel(null, `automatic translation ${e.target.checked ? 'on' : 'off'}`);
+        });
+        langToggle.parentElement.classList.add('listener');
+      }
     });
 
     const desktopAndMobileRadioFeedback = document.querySelectorAll(
       '.doc-mt-toggle .doc-mt-feedback input[type="radio"]',
     );
     [...desktopAndMobileRadioFeedback].forEach((radio) => {
-      radio.addEventListener('click', async () => {
-        assetInteractionModel(null, 'Radio Select');
+      radio.addEventListener('click', async (e) => {
+        assetInteractionModel(null, `helpful-translation - ${e.target.value}`);
       });
     });
   }

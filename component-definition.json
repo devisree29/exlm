@@ -72,7 +72,8 @@
                 "template": {
                   "name": "Section",
                   "model": "section",
-                  "style": "default"
+                  "style": "default",
+                  "filter": "section"
                 }
               }
             }
@@ -134,7 +135,45 @@
                   "filter": "article-content-section",
                   "name": "Article Content Section",
                   "model": "article-content-section",
-                  "style": "article-content-section"
+                  "style": "article-content-section",
+                  "mini-toc": {
+                    "sling:resourceType": "core/franklin/components/block/v1/block",
+                    "name": "Mini TOC"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Profile Section",
+          "id": "profile-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Profile Section",
+                  "model": "profile-section",
+                  "style": "profile-section",
+                  "filter": "profile-section"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Sign Up Flow Section",
+          "id": "sign-up-flow-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Sign Up Flow Section",
+                  "model": "sign-up-flow-section",
+                  "style": "sign-up-flow-section",
+                  "filter": "sign-up-flow-section"
                 }
               }
             }
@@ -661,7 +700,8 @@
                 "template": {
                   "name": "Browse Rail",
                   "model": "browse-rail",
-                  "title": "Browse Rail"
+                  "title": "Browse Rail",
+                  "navigation": "<ul><li><a href='/content/exlm/global/en/browse.html'>Title with Link</a><br><ul><li><a href='/content/exlm/global/en/browse.html'>Subtitle with link</a></li></ul></li><li>Title with no link<ul><li>Subtitle with no link</li></ul></li></ul>"
                 }
               }
             }
@@ -738,6 +778,114 @@
                 "template": {
                   "name": "Article Tags",
                   "model": "article-tags"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Social Share",
+          "id": "social-share",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Social Share",
+                  "model": "social-share"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Featured Authors",
+          "id": "featured-authors",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Featured Authors",
+                  "model": "featured-authors",
+                  "authors_headingType": "h2",
+                  "classes": ["adobe", "left"]
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Inline Survey",
+          "id": "inline-survey",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Inline Survey",
+                  "model": "inline-survey",
+                  "title": "Have an Idea for Content? Drop us a Line."
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Data and Email consent",
+          "id": "data-and-email-consent",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Data and Email consent",
+                  "model": "data-and-email-consent"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Adobe Account Card",
+          "id": "adobe-account-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Adobe Account Card",
+                  "model": "adobe-account-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Role Cards",
+          "id": "role-cards",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Role Cards",
+                  "model": "role-cards"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "User Profile Card",
+          "id": "user-profile-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "User Profile Card",
+                  "model": "user-profile-card"
                 }
               }
             }
