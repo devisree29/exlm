@@ -210,6 +210,8 @@ export default async function decorate(block) {
 
   decorateIcons(headerDiv);
 
+
+
   // Checking if the user is signed in before proceeding
   isSignedInUser().then((isSignedIn) => {
     if (isSignedIn) {
@@ -219,6 +221,9 @@ export default async function decorate(block) {
 
       buildCardsShimmer = new BuildPlaceholder(noOfResults, block);
       buildCardsShimmer.add(block);
+
+      defaultProfileClient.getCommunityProfile();
+      console.log("Executed Community Profile");
 
       // Fetching user profile data
       defaultProfileClient.getMergedProfile().then(async (data) => {

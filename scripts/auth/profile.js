@@ -5,7 +5,7 @@ import initStream from '../events/signup-event-stream.js';
 import loadJWT from './jwt.js';
 import csrf from './csrf.js';
 
-const { profileUrl, JWTTokenUrl, ppsOrigin, ims } = getConfig();
+const { profileUrl, JWTTokenUrl, ppsOrigin, ims, communityAccountURL } = getConfig();
 
 const postSignInStreamKey = 'POST_SIGN_IN_STREAM';
 const override = /^(recommended|votes)$/;
@@ -200,6 +200,39 @@ class ProfileClient {
     this.store.set(storageKey, promise);
     return promise;
   }
+
+  async getCommunityProfile() {
+    const COMMUNITY_PROFILE = 'community-profile';
+    const signedIn = await this.isSignedIn;
+    
+    if (!signedIn) return null;
+    
+    const fromStorage = await this.store.get(COMMUNITY_PROFILE);
+    if (fromStorage) return fromStorage;
+  
+    const accountId = (await window.adobeIMS.getProfile()).userId;
+    const communityProfileUrl = new URL(`${communityAccountURL}/plugins/custom/adobe/adobedx/profile-details`);
+    communityProfileUrl.searchParams.append('user', accountId);
+  
+    try {
+      const response = await fetch(communityProfileUrl.toString(), {
+        headers: {
+          'x-api-secret': 'K83QLQhg2fpwkzVBxdgyyjfGJGlzCqJV4FafEFj2uvFeNIgs9Y7B173OO4tB4B1N8nsDfjE8gXXoBnEGve3WRN5cJeHO9UaSo4585YuBhfhbJkQbldsDSa2phDufZjY28',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch Community profile');
+      }
+  
+      const json = await response.json();
+      await this.store.set(COMMUNITY_PROFILE, json);
+      return json;
+    } catch (error) {
+      return null;
+    }
+  }
+  
 }
 
 export const defaultProfileClient = new ProfileClient(profileUrl);
