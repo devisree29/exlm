@@ -210,7 +210,7 @@ class ProfileClient {
     const fromStorage = await this.store.get(COMMUNITY_PROFILE);
     if (fromStorage) return fromStorage;
   
-    const accountId = (await window.adobeIMS.getProfile()).userId;
+    const accountId = (await window.adobeIMS.getProfile()).authId;
     console.log(accountId);
     const communityProfileUrl = new URL(`${communityAccountURL}plugins/custom/adobe/adobedx/profile-details`);
     communityProfileUrl.searchParams.append('user', accountId);
